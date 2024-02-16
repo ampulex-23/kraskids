@@ -22,8 +22,11 @@ jobs:
       - name: Deploy to VPS
         uses: appleboy/scp-action@master
         with:
-          host: 45.156.26.184
-          username: root
-          password: Nailzxid565
-          source: out/
+          host:
+            from_secret: VPS_HOST
+          username:
+            from_secret: VPS_USERNAME
+          password:
+            from_secret: VPS_PASSWORD
+          source: /
           target: /var/www/html
