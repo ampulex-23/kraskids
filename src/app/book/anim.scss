@@ -1,0 +1,8 @@
+section {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+  &.shown {
+    transition: opacity .5s ease-in-out;
+    opacity: 1;
+  }
+}

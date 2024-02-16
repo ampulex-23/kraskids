@@ -1,0 +1,1 @@
+export const API_URL = "http://kkkons5u.beget.tech/data";
