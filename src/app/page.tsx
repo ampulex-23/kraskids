@@ -108,7 +108,7 @@ export default function Home() {
           <br />
           для вас время
         </h1>
-        <Button caption="Цены на обучение" className="" href="/book.html?age=kids" />
+        <Button caption="Цены на обучение" className="" href="/book?age=kids" />
         <img src="/images/elk2.svg" alt="" />
       </section>
 
@@ -123,7 +123,7 @@ export default function Home() {
         <Button
           caption="Взять на прокат　•　24/ 7"
           className=""
-          href="/rent.html?age=kids"
+          href="/rent?age=kids"
         />
         <img src="/images/gorilla.svg" alt="" />
       </section>
@@ -144,7 +144,7 @@ export default function Home() {
           • Кто будет заниматься с моим ребенком?
           <br />• На каком курорте проходят занятия?
         </p>
-        <Button caption="Частые вопроссы" className="" href="/faq.html?age=kids" />
+        <Button caption="Частые вопроссы" className="" href="/faq?age=kids" />
         <img src="/images/monkey.svg" alt="" />
       </section>
 

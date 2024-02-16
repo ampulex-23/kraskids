@@ -14,9 +14,9 @@ const FAQItem = ({ faq }: { faq: FAQ }): JSX.Element => {
   };
 
   return (
-    <div className={classNames('faq-item', { 'collapsed': !isOpen })}>
+    <div onClick={toggle} className={classNames('faq-item', { 'collapsed': !isOpen })}>
       <ReactMarkdown>{faq.content}</ReactMarkdown>
-      <button onClick={toggle}>
+      <button>
         {isOpen ? '-' : '+'}
       </button>
     </div>

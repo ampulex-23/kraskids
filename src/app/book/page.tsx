@@ -16,7 +16,7 @@ import { Suspense } from 'react';
 import './anim.scss';
 
 const Book = () => {
-  const [category, setCategory] = useState<CategoryTag>('ind');
+  const [category, setCategory] = useState<CategoryTag>('group');
   const [resort, setResort] = useState<ResortTag>('roza');
   const [rule, setRule] = useState<RuleTag>('low');
   const [rtag, setRtag] = useState<number>(0);
@@ -82,7 +82,7 @@ const Book = () => {
       <Suspense>
       <section className={sectClasses + ' shown'} style={{ scrollMarginBottom: '-90px' }}>
         <h3 className={catH3} style={{ lineHeight: '46px' }}>
-          Вид обучения
+          Выберите формат обучения
         </h3>
         <div className="flex flex-row flex-wrap gap-4 md:gap-10">
           {categories
@@ -128,8 +128,8 @@ const Book = () => {
               )}
             >
               <a
-                href="#eq"
-                onClick={() => { setResort(r.tag); setStep(3); }}
+                href={category === 'ind' ? '#eq' : '#rules'}
+                onClick={() => { setResort(r.tag); setStep(category === 'ind' ? 3 : 4); }}
                 className="pb-12"
               >
                 <strong className={classNames(catTitle, 'text-[36px]')}>
@@ -140,6 +140,7 @@ const Book = () => {
           ))}
         </div>
       </section>
+      {category === 'ind' && (
       <section className={sectClasses + (step > 2 ? ' shown' : '')} style={{ scrollMarginBottom: '-90px' }}>
         <h3 id="eq" className={catH3} style={{ lineHeight: '46px' }}>
           Выберите оборудованье
@@ -166,6 +167,7 @@ const Book = () => {
           ))}
         </div>
       </section>
+      )}
 
       <section className={sectClasses + (step > 3 ? ' shown' : '')} style={{ scrollMarginBottom: '-90px' }}>
         <h3 id="rules" className={catH3} style={{ lineHeight: '46px' }}>
@@ -254,7 +256,7 @@ const Book = () => {
             </strong>
             <div className="flex flex-row flex-wrap gap-2 md:gap-6 items-center">
             <div className="flex flex-row flex-wrap gap-2 md:gap-2 items-center">
-            {[2, 3, 4, 5, 6]
+            {[2, 3, 4]
               .map((h) => (
                 <a
                   key={h}
@@ -301,6 +303,7 @@ const Book = () => {
                 <span className="text-[40px] font-[900] col-span-3">
                   {o[rule] * (category === 'group' ? persons - 1 : 1)}₽
                 </span>
+                <p className='text-blue text-[18px] col-span-3'>{o.title}</p>
                 <button
                   onClick={() => setOffer(o)}
                   className="

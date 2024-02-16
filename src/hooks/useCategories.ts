@@ -17,7 +17,8 @@ export default function useCategories() {
       const data = await response.json();
       const categories = data.data
         .sort((a: any, b: any) => a.id - b.id)
-        .map((o: any) => ({ ...o.attributes }));
+        .map((o: any) => ({ ...o.attributes }))
+        .filter((o: any) => !o.disabled);
       setCategories(categories);
     } catch (error) {
       console.error(error);
